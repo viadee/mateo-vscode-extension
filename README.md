@@ -3,7 +3,7 @@
 mateo is a tool for test automation and robotic process automation.
 It is designed for power users who know that automation in a heterogenous application environment is challenging.
 Therefore we have ensured that mateo is easy to install and integrate in your professional environment.
-mateo is deployed as web application.
+mateo is deployed as a web application.
 
 You can automate different types of programs such as
 * Windows applications
