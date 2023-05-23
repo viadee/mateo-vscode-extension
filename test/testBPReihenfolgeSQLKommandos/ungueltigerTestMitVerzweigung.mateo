@@ -1,0 +1,17 @@
+process Prozess1():
+	step whileLoop:
+        comment(TEXT = "While-Schleife mit drei Iterationen, wobei der Index mit dem Wert 0 beginnt.")
+        while(MAX_ITERATIONS = "3"):
+        do:
+            comment(TEXT = "Falls der Indexwert der While-Schleife den Wert 2 hat, trenne die Verbindung zur Datenbank.")
+            if():
+                equalsAlpha(LEFT = "§index§", RIGHT = "2")
+            then:
+                closeSql(CONNECTION_NAME="CONNECTION_ID_1")
+                break()
+            comment(TEXT = "Falls der Indexwert der While-Schleife den Wert 0 hat, baue eine Verbindung zur Datenbank auf.")
+            if():
+                equalsAlpha(LEFT = "§index§", RIGHT = "0")
+            then:
+                openSql(CONNECTION_NAME="CONNECTION_ID_1", JDBC_URL="%DB_URL%", JDBC_DRIVER="%JDBC_TREIBER%", DB_USERNAME="%DB_NUTZERNAME%", DB_PASSWORD="%DB_PASSWORT%")
+            executeSql(CONNECTION_NAME = "CONNECTION_ID_1", SQL_STATEMENT_OR_FILE = "delete from nutzer where id is §index§")

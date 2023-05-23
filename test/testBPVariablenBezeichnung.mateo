@@ -1,0 +1,73 @@
+# Testen ohne Kommentare
+set testvar = "testVar" 
+set testvar1 = "testVar"
+set Testvar = "testVar" 
+set Testvar1 = "testVar"
+set TESTVAR = "testVar" 
+set TESTVAR1 = "testVar" 
+set testVar = "testVar" 
+set testVar1 = "testVar" 
+set testVaR = "testVar" 
+set testVaR1 = "testVar"
+set tEsTvAr = "testVar"
+set tEsTvAr1 = "testVar"
+set testVar- = "testVar"
+set testVar_ = "testVar"
+
+setStorageValue(VALUE = "mateoScript" TARGET_STORAGE_KEY = "testvar")
+setStorageValue(VALUE = "mateoScript" TARGET_STORAGE_KEY = "testvar1")
+setStorageValue(VALUE = "mateoScript" TARGET_STORAGE_KEY = "Testvar")
+setStorageValue(VALUE = "mateoScript" TARGET_STORAGE_KEY = "Testvar1")
+setStorageValue(VALUE = "mateoScript" TARGET_STORAGE_KEY = "TESTVAR")
+setStorageValue(VALUE = "mateoScript" TARGET_STORAGE_KEY = "TESTVAR1")
+setStorageValue(VALUE = "mateoScript" TARGET_STORAGE_KEY = "testVar")
+setStorageValue(VALUE = "mateoScript" TARGET_STORAGE_KEY = "testVar1")
+setStorageValue(VALUE = "mateoScript" TARGET_STORAGE_KEY = "testVaR")
+setStorageValue(VALUE = "mateoScript" TARGET_STORAGE_KEY = "testVaR1")
+setStorageValue(VALUE = "mateoScript" TARGET_STORAGE_KEY = "tEsTvAr")
+setStorageValue(VALUE = "mateoScript" TARGET_STORAGE_KEY = "tEsTvAr1")
+setStorageValue(VALUE = "mateoScript" TARGET_STORAGE_KEY = "testVar-")
+setStorageValue(VALUE = "mateoScript" TARGET_STORAGE_KEY = "testVar_")
+   
+
+# Testen mit Kommentaren
+set test = "testVar" #NoLinter
+set test1 = "testVar" #NoLinter
+set Test = "testVar" #NoLinter
+set Test1 = "testVar"#NoLinter
+set TEST = "testVar" #NoLinter
+set TEST2 = "testVar" #NoLinter
+set testVar = "testVar" #NoLinter
+set testVar1 = "testVar" #NoLinter
+set testvar = "testVar" #NoLinter
+set testvar1 = "testVar" #NoLinter
+set testVaR = "testVar" #NoLinter
+set testVaR1 = "testVar"#NoLinter
+
+# Testen mit Kommentaren NOLINTER
+set test = "testVar" #NOLINTER
+set test1 = "testVar" #NOLINTER
+set Test = "testVar" #NOLINTER
+set Test1 = "testVar"#NOLINTER
+set TEST = "testVar" #NOLINTER
+set TEST2 = "testVar" #NOLINTER
+set testVar = "testVar" #NOLINTER
+set testVar1 = "testVar" #NOLINTER
+set testvar = "testVar" #NOLINTER
+set testvar1 = "testVar" #NOLINTER
+set testVaR = "testVar" #NOLINTER
+set testVaR1 = "testVar"#NOLINTER
+
+# Testen mit Kommentaren nolinter
+set test = "testVar" #nolinter
+set test1 = "testVar" #nolinter
+set Test = "testVar" #nolinter
+set Test1 = "testVar"#nolinter
+set TEST = "testVar" #nolinter
+set TEST2 = "testVar" #nolinter
+set testVar = "testVar" #nolinter
+set testVar1 = "testVar" #nolinter
+set testvar = "testVar" #nolinter
+set testvar1 = "testVar" #nolinter
+set testVaR = "testVar" #nolinter
+set testVaR1 = "testVar"#nolinter

@@ -1,0 +1,137 @@
+{
+    "Simple case": {
+		"prefix": "case",
+		"body": [
+            "case $1:",
+            "\tstep $2:",
+            "\t\t$3"
+		]
+	},
+	"Simple step": {
+		"prefix": "step",
+		"body": [
+            "\tstep $2:",
+            "\t\t$3"
+		]
+	},
+	"If then": {
+		"prefix": "if",
+		"body": [
+			"if():",
+			"\t$1",
+			"then:",
+			"\t$2"
+		]
+	},	
+	"IfNot then": {
+		"prefix": "ifNot",
+		"body": [
+			"ifNot():",
+			"\t$1",
+			"then:",
+			"\t$2"
+		]
+	},
+	"If then else": {
+		"prefix": "ifThenElse",
+		"body": [
+			"if():",
+			"\t$1",
+			"then:",
+			"\t$2",
+			"else:",
+			"\t$3"
+		]
+	},	
+	"If then elseIf": {
+		"prefix": "ifThenElseIf",
+		"body": [
+			"if():",
+			"\t$1",
+			"then:",
+			"\t$2",
+			"elseIf:",
+			"\t$3",
+			"then:",
+			"\t$4",
+			"else:",
+			"\t$5"
+		]
+	},
+	"While loop conditional": {
+		"prefix": "while",
+		"body": [
+			"while(MAX_ITERATIONS = \"$1\"):",
+			"\t$2",
+			"do:",
+			"\t$3"
+		]
+    },
+	"WhileNot loop conditional": {
+		"prefix": "whileNot",
+		"body": [
+			"whileNot(MAX_ITERATIONS = \"$1\"):",
+			"\t$2",
+			"do:",
+			"\t$3"
+		]
+    },
+    "For loop": {
+        "prefix": "for",
+        "body": [
+            "for(DATA_FILE_PATH = \"$1\"):",
+			"\t$0"
+        ]
+    },
+	"EqualsAlpha with standard parameter": {
+        "prefix": "equalsAlpha",
+        "body": [
+            "equalsAlpha(LEFT = \"$1\", RIGHT = \"$2\")"
+        ]
+    },
+	"EqualsAlphaIgnoreCase with standard parameter": {
+        "prefix": "equalsAlphaIgnoreCase",
+        "body": [
+            "equalsAlphaIgnoreCase(TEXT1 = \"$1\", TEXT2 = \"$2\")"
+        ]
+    },
+	"breakpoint": {
+		"prefix": "breakpoint",
+		"body": [
+			"breakpoint()"
+		]
+	},
+    "Start chrome Browser": {
+        "prefix": "startch",
+        "body": [
+            "step Browser starten:",
+            "\tstartWeb(URL = \"$1\", BROWSER_NAME = \"CH\")",
+            "\t$2",
+            "\tstopWeb()"
+        ]
+    },
+
+    "Full Step Documentation": {
+		"prefix": [
+			"doc-full-step"
+		],
+		"body": [
+			"\"\"\"",
+			"${1:<Step Description>}",
+			"",
+			"@param ${2:<Parameter Name>} : ${3:<Parameter Description>}",
+			"\"\"\""
+		],
+		"description": "Full Step Documentation"
+	},
+
+	"Parameter Only Documentation": {
+		"prefix": [
+			"doc-parameter-only"
+		],
+		"body": [
+			"@param ${1:<Parameter Name>} : ${2:<Parameter Description>}",
+		],
+		"description": "Parameter Only Documentation"
+	}
+}

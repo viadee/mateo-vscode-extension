@@ -1,0 +1,155 @@
+# ungültige Äquivalenzklasse: nur Kleinbuchstaben
+const test = "test"
+const test1 = "test"
+const test_ = "test"
+const test- = "test"
+const test_- = "test"
+const te1st = "test"
+const 1test = "test"
+
+#ungültige Äauivalenzklasse: erster Buchstabe groß, Rest Kleinbuchstaben
+const Test = "test"
+const Test1 = "test"
+const Test_ = "test"
+const Test- = "test"
+const Test_- = "test"
+const Te1st = "test"
+const 1Test = "test"
+
+#gültige Äquivalenzklasse: nur Großbuchstaben
+const TEST = "test"
+const TEST1 = "test"
+const TEST_ = "test"
+const TEST- = "test"
+const TEST_- = "test"
+const TE1ST = "test"
+const 1TEST = "test"
+
+#ungültige Äquivalenzklasse: lowerCamelCase
+const tesT = "test"
+const tesT1 = "test"
+const tesT_ = "test"
+const tesT- = "test"
+const tesT_- = "test"
+const te1sT = "test"
+const 1tesT = "test"
+
+# ignorieren der Regel mit NoLinter-Anweisung
+const tesT = "test" #NoLinter
+const tesT1 = "test" #NoLinter
+const tesT_ = "test" #NoLinter
+const tesT- = "test" #NoLinter
+const tesT_- = "test" #NoLinter
+const te1sT = "test" #NoLinter
+const 1tesT = "test" #NoLinter
+
+# Testen ohne Kommentare
+# set test = "testVar" 
+set test1 = "testVar" 
+set Test = "testVar" 
+set Test1 = "testVar"
+set TEST = "testVar" 
+set TEST2 = "testVar" 
+set testVar = "testVar" 
+set testVar1 = "testVar" 
+set testvar = "testVar" 
+set testvar1 = "testVar" 
+set testVaR = "testVar" 
+set testVaR1 = "testVar"
+set tEsTvAr = "testVar"
+set tEsTvAr123 = "testVar"
+set test = getTextWindow(WINDOW_NAME = "", TARGET_STORAGE_KEY = "")
+case HJHBH:
+    step JHBHB:
+        setStorageValue(VALUE = "test" TARGET_STORAGE_KEY = "testvar") 
+
+# Testen mit Kommentaren
+set test = "testVar" #NoLinter
+set test1 = "testVar" #NoLinter
+set Test = "testVar" #NoLinter
+set Test1 = "testVar"#NoLinter
+set TEST = "testVar" #NoLinter
+set TEST2 = "testVar" #NoLinter
+set testVar = "testVar" #NoLinter
+set testVar1 = "testVar" #NoLinter
+set testvar = "testVar" #NoLinter
+set testvar1 = "testVar" #NoLinter
+set testVaR = "testVar" #NoLinter
+set testVaR1 = "testVar"#NoLinter
+
+# Testen mit Kommentaren NOLINTER
+set test = "testVar" #NOLINTER
+set test1 = "testVar" #NOLINTER
+set Test = "testVar" #NOLINTER
+set Test1 = "testVar"#NOLINTER
+set TEST = "testVar" #NOLINTER
+set TEST2 = "testVar" #NOLINTER
+set testVar = "testVar" #NOLINTER
+set testVar1 = "testVar" #NOLINTER
+set testvar = "testVar" #NOLINTER
+set testvar1 = "testVar" #NOLINTER
+set testVaR = "testVar" #NOLINTER
+set testVaR1 = "testVar"#NOLINTER
+
+# Testen mit Kommentaren nolinter
+set test = "testVar" #nolinter
+set test1 = "testVar" #nolinter
+set Test = "testVar" #nolinter
+set Test1 = "testVar"#nolinter
+set TEST = "testVar" #nolinter
+set TEST2 = "testVar" #nolinter
+set testVar = "testVar" #nolinter
+set testVar1 = "testVar" #nolinter
+set testvar = "testVar" #nolinter
+set testvar1 = "testVar" #nolinter
+set testVaR = "testVar" #nolinter
+set testVaR1 = "testVar"#nolinter
+
+process Prozess1():
+	step Step1:
+		for (DATA_FILE_PATH = "testdaten.xlsx"):
+			success(MESSAGE = "$1")
+			success(MESSAGE = "$2")
+			for (DATA_FILE_PATH = "testdaten.xlsx"):
+				success(MESSAGE = "$1")
+			success(MESSAGE = "$2")
+        while (MAX_ITERATIONS = "5", INDEX_NAME = "myindex"):
+			success(MESSAGE = "§myindex§")
+		do:
+			success(MESSAGE = "bar: §myindex§")
+        while (MAX_ITERATIONS = "5"): #NoLinter
+ 		    while (MAX_ITERATIONS = "6"):
+ 			    success(MESSAGE = "test")
+
+process Prozess2():
+    # gültige Äquivalentklasse
+	step Step1:
+		openSql(CONNECTION_NAME="loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection", JDBC_URL="%DB_URL%", JDBC_DRIVER="%JDBC_TREIBER%", DB_USERNAME="%DB_NUTZERNAME%", DB_PASSWORD="%DB_PASSWORT%")
+        executeSql(CONNECTION_NAME = "loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection", SQL_STATEMENT_OR_FILE = "delete from freigabe where typ in ('RVN', 'RVC') and fachobjekt_id not in (select hauptperson_id from versorgungsausgleich);")
+        executeSql(CONNECTION_NAME = "loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection", SQL_STATEMENT_OR_FILE = "delete from freigabe where typ in ('VAN', 'VAA') and fachobjekt_id not in (select id from versorgungsausgleichsberechtigter);")
+        executeSql(CONNECTION_NAME = "loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection", SQL_STATEMENT_OR_FILE = "delete from freigabe where typ = 'RER' and fachobjekt_id not in (select id from rentenerhoehung);")
+        executeSql(CONNECTION_NAME = "loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection", SQL_STATEMENT_OR_FILE = "delete from freigabe where typ like 'M%' and fachobjekt_id not in (select id from mitglied);")
+        executeSql(CONNECTION_NAME = "loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection", SQL_STATEMENT_OR_FILE = "delete from freigabe where typ like 'G%' and fachobjekt_id not in (select id from glaeubiger);")
+        executeSql(CONNECTION_NAME = "loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection", SQL_STATEMENT_OR_FILE = "delete from freigabe where typ like 'R%' and fachobjekt_id not in (select id from rentenempfaenger);")
+        executeSql(CONNECTION_NAME = "loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection", SQL_STATEMENT_OR_FILE = "delete from freigabe where typ like 'K%' and fachobjekt_id not in (select id from krankenkasse);")
+        closeSql(CONNECTION_NAME="loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection")
+        
+    # ungültige Äquivalenzklasse: es sollen mehr Datenbankverbindungen geschlossen als geöffnet werden
+    step Step2:
+        openSql(CONNECTION_NAME="loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection", JDBC_URL="%DB_URL%", JDBC_DRIVER="%JDBC_TREIBER%", DB_USERNAME="%DB_NUTZERNAME%", DB_PASSWORD="%DB_PASSWORT%")
+        executeSql(CONNECTION_NAME = "loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection", SQL_STATEMENT_OR_FILE = "delete from freigabe where typ like 'K%' and fachobjekt_id not in (select id from krankenkasse);")
+        closeSql(CONNECTION_NAME="loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection")        
+        closeSql(CONNECTION_NAME="loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection")
+
+    # ungültige Äquivalenzklasse: executeSql()-Befehl außerhalb einer aktiven Datenbankverbindung
+    step Step3:
+    	openSql(CONNECTION_NAME="loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection", JDBC_URL="%DB_URL%", JDBC_DRIVER="%JDBC_TREIBER%", DB_USERNAME="%DB_NUTZERNAME%", DB_PASSWORD="%DB_PASSWORT%")
+        closeSql(CONNECTION_NAME="loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection") 
+        executeSql(CONNECTION_NAME = "loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection", SQL_STATEMENT_OR_FILE = "delete from freigabe where typ like 'K%' and fachobjekt_id not in (select id from krankenkasse);")
+
+    # ungültige Äquivalenzklasse: es wurden nicht alle aktiven Datenbankverbindungen wieder geschlossen
+    step Step4:
+		openSql(CONNECTION_NAME="loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection", JDBC_URL="%DB_URL%", JDBC_DRIVER="%JDBC_TREIBER%", DB_USERNAME="%DB_NUTZERNAME%", DB_PASSWORD="%DB_PASSWORT%")
+        openSql(CONNECTION_NAME="loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection", JDBC_URL="%DB_URL%", JDBC_DRIVER="%JDBC_TREIBER%", DB_USERNAME="%DB_NUTZERNAME%", DB_PASSWORD="%DB_PASSWORT%")        
+        executeSql(CONNECTION_NAME = "loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection", SQL_STATEMENT_OR_FILE = "delete from freigabe where typ like 'K%' and fachobjekt_id not in (select id from krankenkasse);")
+        closeSql(CONNECTION_NAME="loesche_alle_freigaben_ohne_zugrundeliegendem_fachobjekt_db_connection") 

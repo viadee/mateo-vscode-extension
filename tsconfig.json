@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es6",
+		"outDir": "out",
+		"sourceMap": true,
+		"strict": true,
+		"rootDir": "src",
+		"lib": [
+			"ES2021.String"
+		],
+	},
+	"exclude": [
+		"node_modules",
+		"9263_vtf",
+		"mateo-main",
+		".vscode-test"
+	]
+}

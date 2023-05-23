@@ -1,0 +1,311 @@
+{
+    "name": "mateo",
+    "displayName": "mateo",
+    "description": "mateo",
+    "publisher": "viadee",
+    "icon": "resources/images/mateo.png",
+    "galleryBanner": {
+        "color": "#1e1e1e",
+        "theme": "dark"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/viadee-internal/mateo-vscode-extension"
+    },
+    "keywords": [
+        "testautomation",
+        "robotic process automation",
+        "rpa"
+    ],
+    "version": "3.11.0-SNAPSHOT",
+    "engines": {
+        "vscode": "^1.42.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./out/extension.js",
+    "browser": "./dist/web/extension.js",
+    "contributes": {
+        "languages": [
+            {
+                "id": "mateo",
+                "icon": {
+                    "light": "./resources/images/icons/mateoScript-icon.svg",
+                    "dark": "./resources/images/icons/mateoScript-icon.svg"
+                },
+                "aliases": [
+                    "mateoScript"
+                ],
+                "extensions": [
+                    ".mateo",
+                    ".mrepo"
+                ],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "Log",
+                "aliases": [
+                    "log"
+                ],
+                "extensions": [
+                    ".log"
+                ],
+                "configuration": "./language-configuration.json",
+                "mimetypes": [
+                    "log",
+                    "text/log",
+                    "text/x-log",
+                    "text/x-code-output",
+                    "x-code-output"
+                ]
+            }
+        ],
+        "grammars": [
+            {
+                "language": "mateo",
+                "scopeName": "source.mateo",
+                "path": "./syntaxes/mateo.tmLanguage.json"
+            },
+            {
+                "language": "Log",
+                "scopeName": "code.log",
+                "path": "./syntaxes/log.tmLanguage"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "mateo",
+                "path": "./snippets.json"
+            }
+        ],
+        "commands": [
+            {
+                "command": "extension.mateo.runFullScript",
+                "title": "mateo: Execute Script",
+                "icon": "$(debug-start)"
+            },
+            {
+                "command": "extension.mateo.abort",
+                "title": "mateo: Abort script runs",
+                "icon": "$(debug-stop)"
+            },
+            {
+                "command": "extension.mateo.lintBP",
+                "title": "mateo: Check for best practices",
+                "icon": "$(debug-console-view-icon)"
+            },
+            {
+                "command": "extension.mateo.runSnippet",
+                "title": "mateo: Execute Snippet",
+                "icon": "$(debug-continue)"
+            },
+            {
+                "command": "extension.mateo.runSingleCommand",
+                "title": "mateo: Execute Command(s)",
+                "icon": "$(debug-step-over)"
+            },
+            {
+                "command": "extension.mateo.validate",
+                "title": "mateo: Validate script or selection",
+                "icon": "$(check)"
+            },
+            {
+                "command": "extension.mateo.constantExtractor",
+                "title": "mateo: Extract Constant",
+                "icon": "$(tag-add)"
+            },
+            {
+                "command": "extension.mateo.resultView",
+                "title": "mateo: Validate script or selection",
+                "icon": "$(symbol-enum)"
+            },
+            {
+                "command": "extension.mateo.reloadGlobalRepos",
+                "title": "Reload the global repositories in the backend.",
+                "icon": "$(search-refresh)"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.mateo.validate",
+                "key": "ctrl+9",
+                "mac": "cmd+9",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "extension.mateo.abort",
+                "key": "ctrl+8",
+                "mac": "cmd+8",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "extension.mateo.runFullScript",
+                "key": "ctrl+0",
+                "mac": "cmd+0",
+                "when": "editorTextFocus"
+            }
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "extension.mateo.validate",
+                    "when": "editorLangId == mateo"
+                },
+                {
+                    "command": "extension.mateo.runSnippet",
+                    "when": "editorLangId == mateo"
+                },
+                {
+                    "command": "extension.mateo.runFullScript",
+                    "when": "editorLangId == mateo"
+                },
+                {
+                    "command": "extension.mateo.abort",
+                    "when": "editorLangId == mateo"
+                },
+                {
+                    "command": "extension.mateo.lintBP",
+                    "when": "editorLangId == mateo"
+                },
+                {
+                    "command": "extension.mateo.reloadGlobalRepos",
+                    "when": "editorLangId == mateo"
+                }
+            ],
+            "editor/title": [
+                {
+                    "command": "extension.mateo.runSingleCommand",
+                    "when": "editorLangId == mateo",
+                    "group": "navigation@0"
+                },
+                {
+                    "command": "extension.mateo.runSnippet",
+                    "when": "editorLangId == mateo",
+                    "group": "navigation@1"
+                },
+                {
+                    "command": "extension.mateo.runFullScript",
+                    "when": "editorLangId == mateo",
+                    "group": "navigation@2"
+                },
+                {
+                    "command": "extension.mateo.abort",
+                    "when": "editorLangId == mateo",
+                    "group": "navigation@3"
+                },
+                {
+                    "command": "extension.mateo.validate",
+                    "when": "editorLangId == mateo",
+                    "group": "navigation@4"
+                },
+                {
+                    "command": "extension.mateo.constantExtractor",
+                    "when": "editorLangId == mateo",
+                    "group": "navigation@5"
+                },
+                {
+                    "command": "extension.mateo.lintBP",
+                    "when": "editorLangId == mateo",
+                    "group": "navigation@6"
+                },
+                {
+                    "command": "extension.mateo.reloadGlobalRepos",
+                    "when": "editorLangId == mateo",
+                    "group": "navigation@7"
+                }
+            ]
+        },
+        "configuration": {
+            "title": "mateo",
+            "properties": {
+                "mateo.mateoHostUrl": {
+                    "type": "string",
+                    "default": "http://localhost:8123",
+                    "description": "Base URL to a running mateo instance (e.g. http://localhost:8123)"
+                },
+                "mateo.snippetLanguage": {
+                    "type": "string",
+                    "default": "de",
+                    "description": "Indicates in which language to retrieve the hints when hovering over keywords. Either 'de' or 'en'"
+                },
+                "mateo.user": {
+                    "type": "string",
+                    "default": "user",
+                    "description": "Auth User"
+                },
+                "mateo.mateoAuthEnabled": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Activate to ask for Password for Authentication"
+                },
+                "mateo.rejectUnauthorized": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Reject https connections if they have invalid certificates. Disabling this poses a security risk, but may be necessary if you wish to use mateo with a self-signed certificate."
+                },
+                "mateo.enableOutline": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable outline (Go to Symbol function) for mateoScript files"
+                },
+                "mateo.openWebReport": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "After script run, open report in mateo web interface instead of opening the locally saved HTML report file"
+                },
+                "mateo.validateOnSave": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Automatically validate a script on saving."
+                },
+                "mateo.bestPracticesLinter.CommentCommandBeforeControlStructure": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Check for a missing comment or comment()-command before control structures."
+                },
+                "mateo.bestPracticesLinter.CheckForCorrectNamingOfConstants": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Verify that the uppercase-only convention for naming constants has been followed."
+                },
+                "mateo.bestPracticesLinter.CheckForCorrectNamingOfVariables": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Check if the lower camelcase convention for naming variables has been followed."
+                },
+                "mateo.bestPracticesLinter.CorrectSQLCommandsOrder": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Check the match of openSQL() and closeSQL() commands and if the order of SQL commands fits."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "lint": "tslint -p ./",
+        "watch": "tsc -watch -p ./",
+        "compile-web": "webpack"
+    },
+    "dependencies": {
+        "axios": "^0.19.2",
+        "buffer": "^6.0.3",
+        "https-browserify": "^1.0.0",
+        "stream-http": "^3.2.0",
+        "url": "^0.11.0"
+    },
+    "devDependencies": {
+        "@types/node": "^10.17.60",
+        "@types/vscode": "^1.32.0",
+        "ts-loader": "^9.4.2",
+        "tslint": "^5.16.0",
+        "typescript": "^4.9.5",
+        "webpack": "^5.76.3",
+        "webpack-cli": "^5.0.1"
+    }
+}

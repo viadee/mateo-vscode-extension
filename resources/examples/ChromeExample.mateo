@@ -1,0 +1,30 @@
+const XPATH_COOKIES_AKZEPTIEREN = "//button[@aria-label="Akzeptieren"]"
+const XPATH_BLOG = "//nav//a[contains(.,"Blog")]"
+const XPATH_NEUSTER_BLOGBEITRAG = "//div[@class="post-item"][1]"
+const XPATH_AUTHOR_NAME = "//div[@class="cm-author-title"]/h4"
+const XPATH_KOMMENTAR_BEREICH = "//div[@data-widget-type="blog_comments"]"
+case Zu Blogbeitrag navigieren:
+    step Browser starten:
+        startWeb(URL = "https://www.viadee.de", BROWSER_NAME = "CH")
+        clickWeb(ELEMENT_NAME = "%XPATH_COOKIES_AKZEPTIEREN%", BY_CRITERIA = "xpath")
+    step viadee Blog aufrufen:
+        clickWeb(ELEMENT_NAME = "%XPATH_BLOG%", BY_CRITERIA = "xpath")
+        clickWeb(ELEMENT_NAME = "%XPATH_COOKIES_AKZEPTIEREN%", BY_CRITERIA = "xpath")
+    step Neuesten Blog Post auswaehlen:
+        waitForElementVisibleWeb(ELEMENT_NAME = "%XPATH_NEUSTER_BLOGBEITRAG%", BY_CRITERIA = "xpath")
+        clickWeb(ELEMENT_NAME = "%XPATH_NEUSTER_BLOGBEITRAG%", BY_CRITERIA = "xpath")
+case viadee Blogeintrag Autor ermitteln:
+    step Autor ermitteln:
+        getTextFromElementWeb(BY_CRITERIA = "xpath", ELEMENT_NAME = "%XPATH_AUTHOR_NAME%", TARGET_STORAGE_KEY = "Beitragsautor")
+        comment(TEXT = "Der Beitragsautor ist §Beitragsautor§")
+case viadee Blogeintrag Kommentar erstellen:
+    step Name und E-Mail eingeben:
+        scrollToElementWeb(ELEMENT_NAME = "%XPATH_KOMMENTAR_BEREICH%", BY_CRITERIA = "xpath")
+        sendTextWeb(ELEMENT_NAME = "firstname", BY_CRITERIA = "name", TEXT_TO_SEND = "Max")
+        sendTextWeb(ELEMENT_NAME = "lastname", BY_CRITERIA = "name", TEXT_TO_SEND = "Mustermann")
+        sendTextWeb(ELEMENT_NAME = "email", BY_CRITERIA = "name", TEXT_TO_SEND = "max@mustermann.de")
+        wait(WAIT_MILLISECONDS = "500")
+        takeScreenshot()
+case Browser beenden:
+    step Browser beenden:
+        stopWeb()

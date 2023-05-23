@@ -1,0 +1,12 @@
+case Groovy Beispiel:
+    step Ein bisschen Groovy:
+        changeStorageValue(SOURCE_STORAGE_KEY = "einWert", OPERATION = "addOrReplace", PARAM3 = "726,5")
+        #Einfache Berechnung:
+        evaluate(FILEPATH_OR_SCRIPT = "x=14; y = 20 ; return y * x;", TARGET_STORAGE_KEY = "result")
+        equalsAlpha(LEFT = "§result§", RIGHT = "280")
+        #Ein wenig komplexer:
+        evaluate(FILEPATH_OR_SCRIPT = "value = '§einWert§' ; value = value.replaceAll(',','.'); x = 14 ; y = 20 ; return Math.round(Float.parseFloat(value) + y * 0.5 / x);" ,TARGET_STORAGE_KEY = "result")
+        equalsAlpha(LEFT = "§result§", RIGHT = "727")
+        #ganz simpel:
+        evaluate(FILEPATH_OR_SCRIPT = "5 * 4",TARGET_STORAGE_KEY = "result")
+        equalsAlpha(LEFT = "§result§", RIGHT = "20")

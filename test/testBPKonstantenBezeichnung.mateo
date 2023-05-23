@@ -1,0 +1,39 @@
+const test = "test"
+const test1 = "test"
+const test_ = "test"
+const test- = "test"
+const test_- = "test"
+const te1st = "test"
+const 1test = "test"
+
+const Test = "test"
+const Test1 = "test"
+const Test_ = "test"
+const Test- = "test"
+const Test_- = "test"
+const Te1st = "test"
+const 1Test = "test"
+
+const TEST = "test"
+const TEST1 = "test"
+const TEST_ = "test"
+const TEST- = "test"
+const TEST_- = "test"
+const TE1ST = "test"
+const 1TEST = "test"
+
+const tesT = "test"
+const tesT1 = "test"
+const tesT_ = "test"
+const tesT- = "test"
+const tesT_- = "test"
+const te1sT = "test"
+const 1tesT = "test"
+
+const tesT = "test" #NoLinter
+const tesT1 = "test" #NoLinter
+const tesT_ = "test" #NoLinter
+const tesT- = "test" #NoLinter
+const tesT_- = "test" #NoLinter
+const te1sT = "test" #NoLinter
+const 1tesT = "test" #NoLinter

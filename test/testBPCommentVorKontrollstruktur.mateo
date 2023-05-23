@@ -1,0 +1,31 @@
+case Testfall1():
+	step Step1():
+		for (DATA_FILE_PATH = "testdaten.xlsx"):
+			success(MESSAGE = "$1")
+			success(MESSAGE = "$2")
+		"""
+		Kontrolle, ob der Counter den Wert 3 hat
+			Counter = 3 --> Warnung
+			Counter != 3 --> Erfolg
+		"""
+		if():
+			equalsAlpha(LEFT = "§counter§", RIGHT = "3")
+		then:
+    		warning(MESSAGE = "Counter equals 3")
+		else:
+    		success(MESSAGE = "Counter is not 3")
+		comment(TEXT = """
+			Ausführung solange 
+			bis der Index myindex 
+			den Wert 5 hat.
+		""")
+        while (MAX_ITERATIONS = "5", INDEX_NAME = "myindex"):
+			success(MESSAGE = "§myindex§")
+		do:
+			success(MESSAGE = "bar: §myindex§")
+		# Ausführung solange bis MAX_ITERATIONS den Wert 5 hat
+        while (MAX_ITERATIONS = "5"):
+ 		    while (MAX_ITERATIONS = "4"): #NoLinter
+ 			    success(MESSAGE = "test")
+
+

@@ -1,0 +1,5 @@
+case Testfall():
+    step Step():
+        executeSql(CONNECTION_NAME = "CONNECTION_ID_1", SQL_STATEMENT_OR_FILE = "delete from freigabe where typ like 'K%' and fachobjekt_id not in (select id from krankenkasse);")
+    	openSql(CONNECTION_NAME="CONNECTION_ID_1", JDBC_URL="%DB_URL%", JDBC_DRIVER="%JDBC_TREIBER%", DB_USERNAME="%DB_NUTZERNAME%", DB_PASSWORD="%DB_PASSWORT%")
+        closeSql(CONNECTION_NAME="CONNECTION_ID_1") 
