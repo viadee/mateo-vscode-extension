@@ -2,11 +2,9 @@
 
 All notable changes to the mateoScript extension for VSCode will be documented in this file.
 
-## [3.11.0] - XX.XX.XXXX
+## [3.10.4] - 30.03.2023
 
-- Fixed file validation which was broken when file was not in workspace root (TES-2363)
-- Fixed: after a script run with a non-successful result level, notification was displayed permanently and HTML report was opened instead of web report.  (TES-2364)
-- Fixed: Now quotation marks can surround repository filenames in import statements (e.g. use "./TES-2347.mrepo" as repo) (TES-2374)
+- Updated command recommendations for IntelliSense
 
 ## [3.10.3] - 30.03.2023
 
@@ -19,7 +17,6 @@ All notable changes to the mateoScript extension for VSCode will be documented i
 - After script run, the report will now be opened in the mateo web interface instead of the local HTML report by default (option 'Open Web Report') (TES-2265)
 - Removed obsolete property called "Nullable Property" from extension settings (TES-2291)
 - Bugfix: Validating and executing scripts and snippets containing special characters in filename from the VSCode extension is now possible (TES-2165)
-
 ## [3.9.1] - 26.09.2022
 
 - Tooltip now also shown for commands where synonym names are used (TES-2226)
@@ -30,7 +27,6 @@ All notable changes to the mateoScript extension for VSCode will be documented i
 ### Added
 
 - "Extract Constant" button replacing all occurrences of a selected text sequence
-
 ## [3.8.1] - 08.04.2022
 
 ### Added

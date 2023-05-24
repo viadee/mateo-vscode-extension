@@ -45,8 +45,21 @@ async function runScript(resolve: any, fileName: string, host: string) {
         .then(function (response: any) {
             ResponseHandler.handleResponseAndOpenInBrowser(response)
             resolve();
-        }, function (response: any) {
-            ResponseHandler.handleResponseAndOpenInBrowser(response)
+        }).catch(function (error: any) {
+            if (error.response && error.response.data) {
+                logger.info(error.response.data);
+                if (error.response.data.xmlFilepath) {
+                    const reportFilename: string = error.response.data.xmlFilepath.slice(0, error.response.data.xmlFilepath.length - 3) + "html"
+                    logger.info("Opening report: " + reportFilename)
+                    vscode.env.openExternal(vscode.Uri.file(reportFilename));
+                    vscode.window.showErrorMessage("Result: " + error.response.data.testSetResults.default.longDescription)
+                } else {
+                    // parsing error
+                    vscode.window.showErrorMessage("Execution failed: " + error.response.data)
+                }
+            } else {
+                vscode.window.showErrorMessage("Failed to connect to mateo. mateo not running?")
+            }
             resolve();
         });
 }

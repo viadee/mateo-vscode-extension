@@ -19,7 +19,7 @@ export class ResponseHandler {
             vscode.env.openExternal(vscode.Uri.file(reportFilename));
             vscode.window.showInformationMessage("Result: " + response.data.testSetResults.default.longDescription)
         }
-        if (response.data?.parserErrors) {
+        if (response.data.parserErrors) {
             ResponseHandler.handleValidationErrors(response.data.parserErrors, codeUtils.getFileName());
         }
     }
@@ -31,7 +31,13 @@ export class ResponseHandler {
         for (const [key, val] of Object.entries(errorData)) {
             let filename = key.substring(0, key.lastIndexOf(":"));
             let lineNumber = + key.substring(key.lastIndexOf(":") + 1);
+
+            filename = filename.replace(/^.*(\\|\/|\:)/, '');
             let errorText: string = val as string;
+            // +keySplit means that it is an integer
+            if (scriptFileName.includes(filename)) {
+                filename = codeUtils.getWorkspaceFolderUnixStyle() + '/' + filename;
+            }
             let canonicalFile = vscode.Uri.file(filename).toString();
             let range = new vscode.Range(lineNumber - 1, 0, lineNumber - 1, 100);
             let diagnostics = diagnosticMap.get(canonicalFile);

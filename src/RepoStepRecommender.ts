@@ -13,7 +13,6 @@ import { StepRecommendationsBuffer } from "./StepRecommendationsBuffer";
 import AliasPriorities from "./AliasPriorities";
 import RepositoryProcessor from "./utils/RepositoryProcessor";
 import { Nullable } from "./utils/Nullable";
-import * as codeUtils from './utils/codeUtils';
 
 /**
  * Parses and provides access to the repositories.
@@ -53,7 +52,7 @@ export default class RepoStepRecommender {
   /**
    * Keep this singleton's constructor private.
    */
-  private constructor() { }
+  private constructor() {}
 
   public async provideRecommendation(
     document: string,
@@ -246,7 +245,6 @@ export default class RepoStepRecommender {
       let aliasAndRepo: string[] = this.extractAliasAndRepoName(currentLine);
       let aliasName = aliasAndRepo[0];
       let repoName = aliasAndRepo[1];
-      repoName = codeUtils.trimQuotationMarks(repoName);
       // If the repository has been used (a.k.a. included) in previous lines of the mateo script,
       // then any additional includes are invalid.
       // This in particular implies that two distinct aliases for the same repository are not allowed.

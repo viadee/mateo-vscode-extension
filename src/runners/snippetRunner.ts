@@ -5,8 +5,8 @@ import { ExtensionDataHolder } from '../extensionDataHolder';
 import { AxiosUtils } from '../utils/axiosUtils';
 import axios, { AxiosBasicCredentials } from 'axios';
 import { ResponseHandler } from '../responseHandler'
-import { Agent } from 'https';
-import { TextDocument } from 'vscode';
+import {Agent} from 'https';
+import {TextDocument} from 'vscode';
 
 const dataHolder = ExtensionDataHolder.getInstance();
 
@@ -24,7 +24,7 @@ export const runSnippet = vscode.commands.registerCommand('extension.mateo.runSn
     }
 
     code = await generateSnippet(textEditor, codeUtils.getFileName, code);
-
+    
 
     // send validation request
     logger.info("Running: " + code)
@@ -32,7 +32,7 @@ export const runSnippet = vscode.commands.registerCommand('extension.mateo.runSn
 
     vscode.window.showInformationMessage("Running snippet...");
     let config = vscode.workspace.getConfiguration('mateo')
-
+    
     axios.post(config.mateoHostUrl + '/dsl/execute', code,
         {
             auth: await AxiosUtils.getAxiosAuth(),
@@ -61,7 +61,7 @@ export const runSnippet = vscode.commands.registerCommand('extension.mateo.runSn
 });
 
 
-async function generateSnippet(textEditor: vscode.TextEditor, getFileName: () => string, code: string) {
+async function generateSnippet (textEditor: vscode.TextEditor, getFileName: () => string, code: string) {
     let workspacePath = retrieveWorkspacePath(textEditor.document.uri.fsPath);
 
     let fileNameUnixStyle: string = getFileName().replace(/\\/g, '/');
@@ -69,31 +69,27 @@ async function generateSnippet(textEditor: vscode.TextEditor, getFileName: () =>
 
     code = ">>>RESOURCE " + fileFromSub + "\n" + code;
 
-    code = trimQuotationMarksInUseLines(code)
     let useLines: string[] = getUseLines(code);
 
     code = await generateUseResources(useLines, code, workspacePath);
     return code;
 }
 
-export function retrieveWorkspacePath(workspaceFolder: string) {
+export function retrieveWorkspacePath(workspaceFolder:string){
     let workspacePath = (workspaceFolder).replace(/\\/g, '/');
     return workspacePath.substring(0, workspacePath.lastIndexOf('/'));
 }
-
-export async function generateUseResources(useLines: string[], code: string, workspacePath: string) {
+export async function generateUseResources (useLines: string[], code: string, workspacePath: string) {
     for (let line in useLines) {
         let match = useLines[line].match(/\t*use\s+([^*&%\s]+).*/);
         if (match) {
             let filename = match[1];
-            filename = codeUtils.trimQuotationMarks(filename);
             code += ">>>NEW_FILE\n";
             code += ">>>RESOURCE " + filename + "\n";
             let document = await vscode.workspace.openTextDocument(vscode.Uri.file(workspacePath + "/" + filename));
             let text = document.getText();
             logger.info("Use code: " + text);
 
-            text = trimQuotationMarksInUseLines(text)
             let innerUseLines: string[] = getUseLines(text);
 
             code += text.concat("\n");
@@ -104,29 +100,10 @@ export async function generateUseResources(useLines: string[], code: string, wor
     return code;
 }
 
-export function getUseLines(text: string): string[] {
-    text = trimQuotationMarksInUseLines(text)
+export function getUseLines (text: string): string[] {
     let codeLineArray: string[] = text.split('\n');
     // gather .mrepo files content
     return codeLineArray.filter(function (row) {
         return /^\s*use\s+([^*&%\s]+).*/.test(row);
     });
-}
-  
-export function trimQuotationMarksInUseLines(text: string): string {
-    const lines = text.split(/\r?\n/);
-    const outputLines = lines.map(line => {
-        return line.replace(/^use "([^"]+)"(?: as ([^ ]+))?$/, (match, p1, p2) => {
-            if (p2) {
-              return `use ${p1} as ${p2}`;
-            } else {
-              return `use ${p1}`;
-            }
-          });
-    });
-    let outputText = outputLines.join('\n');
-    return outputText;
-
-
-    
 }

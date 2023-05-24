@@ -114,12 +114,3 @@ export const isElementInOpenSQLCommandsArray = (pArray: [string, vscode.Range][]
     }
     return false;
 }
-
-//if the input string has both leading and trailing quotation marks, remove them
-export const trimQuotationMarks = (input: string):string => {
-    if (input.match(/^"(.*)"$/)) { // check if the string starts and ends with a quotation mark
-        return input.replace(/^"(.*)"$/, '$1'); // remove the quotation marks
-      } else {
-        return input;
-      }
-};
