@@ -2,7 +2,7 @@
 
 All notable changes to the mateoScript extension for VSCode will be documented in this file.
 
-## [3.10.4] - 30.03.2023
+## [3.10.5] - 30.03.2023
 
 - Updated command recommendations for IntelliSense
 
