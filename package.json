@@ -10,7 +10,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/viadee-internal/mateo-vscode-extension"
+        "url": "https://github.com/viadee/mateo-vscode-extension"
     },
     "keywords": [
         "testautomation",
