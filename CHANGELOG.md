@@ -2,7 +2,9 @@
 
 All notable changes to the mateoScript extension for VSCode will be documented in this file.
 
-## [3.11.0] - XX.XX.XXXX
+## [3.12.0] - XX.XX.XXXX
+
+## [3.11.0] - 31.07.2023
 
 - Fixed file validation which was broken when file was not in workspace root (TES-2363)
 - Fixed: after a script run with a non-successful result level, notification was displayed permanently and HTML report was opened instead of web report.  (TES-2364)
