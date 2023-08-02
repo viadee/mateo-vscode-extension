@@ -2,6 +2,12 @@
 
 All notable changes to the mateoScript extension for VSCode will be documented in this file.
 
+## [3.11.0] - 03.08.2023
+
+- Fixed file validation which was broken when file was not in workspace root (TES-2363)
+- Fixed: after a script run with a non-successful result level, notification was displayed permanently and HTML report was opened instead of web report.  (TES-2364)
+- Fixed: Now quotation marks can surround repository filenames in import statements (e.g. use "./TES-2347.mrepo" as repo) (TES-2374)
+
 ## [3.10.5] - 30.03.2023
 
 - Updated command recommendations for IntelliSense
