@@ -181,6 +181,36 @@ export function activate (context: vscode.ExtensionContext) {
 
     const dataHolder = ExtensionDataHolder.getInstance();
 
+    // Create a status bar item
+    const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
+    statusBarItem.text = 'URL Check: ...';
+    statusBarItem.show();
+
+    // Set URL to check
+    const config = vscode.workspace.getConfiguration('mateo')
+    const urlToCheck = config.mateoHostUrl + '/api/status';
+
+    async function checkUrl() {
+        try {
+            // Check if the URL is reachable
+            await axios.get(urlToCheck);
+            // If reachable, set green indicator
+            statusBarItem.text = `$(circle-large-outline) mateo Backend: Online`;
+            statusBarItem.color = 'green';
+        } catch (error) {
+            // If not reachable, set red indicator
+            statusBarItem.text = `$(circle-large-outline) mateo Backend: Offline`;
+            statusBarItem.color = 'red';
+        }
+    }
+
+    // Check the URL at an interval of 10 seconds
+    checkUrl();
+    setInterval(checkUrl, 10000);
+
+    // Push the status bar item to the subscriptions
+    context.subscriptions.push(statusBarItem);
+
     context.subscriptions.push(dataHolder.diagnosticCollection);
     context.subscriptions.push(
         commandRecommendations,
