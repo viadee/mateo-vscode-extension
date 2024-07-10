@@ -182,34 +182,61 @@ export function activate (context: vscode.ExtensionContext) {
     const dataHolder = ExtensionDataHolder.getInstance();
 
     // Create a status bar item
-    const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
-    statusBarItem.text = 'URL Check: ...';
-    statusBarItem.show();
+    const mateoStatusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
+    mateoStatusBarItem.text = 'mateo: ...';
+    mateoStatusBarItem.show();
 
     // Set URL to check
     const config = vscode.workspace.getConfiguration('mateo')
-    const urlToCheck = config.mateoHostUrl + '/api/status';
+    const urlToCheckMateoStatus = config.mateoHostUrl + '/api/status';
 
-    async function checkUrl() {
+    async function checkMateoStatusUrl() {
         try {
             // Check if the URL is reachable
-            await axios.get(urlToCheck);
+            await axios.get(urlToCheckMateoStatus);
             // If reachable, set green indicator
-            statusBarItem.text = `$(circle-large-outline) mateo Backend: Online`;
-            statusBarItem.color = 'green';
+            mateoStatusBarItem.text = `$(circle-large-outline) mateo: Online`;
+            mateoStatusBarItem.color = 'green';
         } catch (error) {
             // If not reachable, set red indicator
-            statusBarItem.text = `$(circle-large-outline) mateo Backend: Offline`;
-            statusBarItem.color = 'red';
+            mateoStatusBarItem.text = `$(circle-large-outline) mateo: Offline`;
+            mateoStatusBarItem.color = 'red';
         }
     }
 
     // Check the URL at an interval of 10 seconds
-    checkUrl();
-    setInterval(checkUrl, 10000);
+    checkMateoStatusUrl();
+    setInterval(checkMateoStatusUrl, 10000);
+
+     // Create a status bar item
+     const robotStatusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
+     robotStatusBarItem.text = 'URL Check: ...';
+     robotStatusBarItem.show();
+ 
+     // Set URL to check
+     const urlToCheckRobot = config.mateoHostUrl + '/api/robot/status';
+ 
+     async function checkRobotBridgeUrl() {
+         try {
+             // Check if the URL is reachable
+             await axios.get(urlToCheckRobot);
+             // If reachable, set green indicator
+             robotStatusBarItem.text = `$(circle-large-outline) RobotBridge: Online`;
+             robotStatusBarItem.color = 'green';
+         } catch (error) {
+             // If not reachable, set red indicator
+             robotStatusBarItem.text = `$(circle-large-outline) RobotBridge: Offline`;
+             robotStatusBarItem.color = 'red';
+         }
+     }
+ 
+     // Check the URL at an interval of 10 seconds
+     checkRobotBridgeUrl();
+     setInterval(checkRobotBridgeUrl, 10000);
 
     // Push the status bar item to the subscriptions
-    context.subscriptions.push(statusBarItem);
+    context.subscriptions.push(mateoStatusBarItem);
+    context.subscriptions.push(robotStatusBarItem);
 
     context.subscriptions.push(dataHolder.diagnosticCollection);
     context.subscriptions.push(
