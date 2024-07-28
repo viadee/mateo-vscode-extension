@@ -19,13 +19,10 @@
     ],
     "version": "3.12.0-SNAPSHOT",
     "engines": {
-        "vscode": "^1.42.0"
+        "vscode": "^1.75.0"
     },
     "categories": [
         "Programming Languages"
-    ],
-    "activationEvents": [
-        "*"
     ],
     "main": "./out/extension.js",
     "browser": "./dist/web/extension.js",
@@ -301,7 +298,7 @@
     },
     "devDependencies": {
         "@types/node": "^10.17.60",
-        "@types/vscode": "^1.32.0",
+        "@types/vscode": "^1.75.0",
         "ts-loader": "^9.4.2",
         "tslint": "^5.16.0",
         "typescript": "^4.9.5",
