@@ -24,9 +24,9 @@
     "categories": [
         "Programming Languages"
     ],
+    "activationEvents": [],
     "main": "./out/extension.js",
     "browser": "./dist/web/extension.js",
-    "activationEvents": [],
     "contributes": {
         "languages": [
             {
