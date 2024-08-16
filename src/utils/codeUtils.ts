@@ -14,7 +14,8 @@ export const getSelectedCode = () => {
     });
     let text : string = "";
     selections.forEach((selection) => {
-        text += textEditor?.document.getText(selection)
+        let endLineLength:number = textEditor!.document.lineAt(selection.end).text.length;
+        text += textEditor?.document.getText(new vscode.Range(selection.start.line, 0, selection.end.line, endLineLength));
         text += "\n";
     });
 

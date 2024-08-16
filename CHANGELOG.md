@@ -8,6 +8,7 @@ All notable changes to the mateoScript extension for VSCode will be documented i
 
 - Added additional status bar for Robot Framework bridge
 - Added dynamic loading of command recommendations
+- Enable handling of line breaks in single command execution (TES-2283)
 
 ## [3.11.0] - 03.08.2023
 
