@@ -1,39 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>de.viadee.mateo </groupId>
-	<artifactId>vscode-plugin </artifactId>
+	<groupId>de.viadee.mateo</groupId>
+	<artifactId>vscode-plugin</artifactId>
 	<version>3.12.0-SNAPSHOT</version>
-	
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<extensions>
-		<extension>
-			<groupId>com.google.cloud.artifactregistry</groupId>
-			<artifactId>artifactregistry-maven-wagon</artifactId>
-			<version>2.1.0</version>
-		</extension>
-		</extensions>		
-	</build>	
-	
-<distributionManagement>
+			<extension>
+				<groupId>com.google.cloud.artifactregistry</groupId>
+				<artifactId>artifactregistry-maven-wagon</artifactId>
+				<version>2.1.0</version>
+			</extension>
+		</extensions>
+	</build>
+	<distributionManagement>
 		<snapshotRepository>
-		  <id>artifact-registry</id>
-		  <url>artifactregistry://europe-west3-maven.pkg.dev/vtf-cloud/viadee-mateo-snapshot</url>
+			<id>artifact-registry</id>
+			<url>artifactregistry://europe-west3-maven.pkg.dev/vtf-cloud/viadee-mateo-snapshot</url>
 		</snapshotRepository>
 	</distributionManagement>
-
 	<repositories>
 		<repository>
-		  <id>artifact-registry</id>
-		  <url>artifactregistry://europe-west3-maven.pkg.dev/vtf-cloud/viadee-mateo-snapshot</url>
-		  <releases>
-			<enabled>false</enabled>
-		  </releases>
-		  <snapshots>
-			<enabled>true</enabled>
-		  </snapshots>
+			<id>artifact-registry</id>
+			<url>artifactregistry://europe-west3-maven.pkg.dev/vtf-cloud/viadee-mateo-snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 		</repository>
 		<repository>
 			<id>mateo-artifact-registry-release</id>
@@ -44,7 +42,6 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-		</repository>		
-	</repositories>	
-
+		</repository>
+	</repositories>
 </project>

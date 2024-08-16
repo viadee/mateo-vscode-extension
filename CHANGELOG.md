@@ -2,7 +2,12 @@
 
 All notable changes to the mateoScript extension for VSCode will be documented in this file.
 
-## [3.12.0] - XX.XX.XXXX
+## [3.13.0] - XX.XX.XXXX
+
+## [3.12.0] - 19.08.2024
+
+- Added additional status bar for Robot Framework bridge
+- Added dynamic loading of command recommendations
 
 ## [3.11.0] - 03.08.2023
 
