@@ -3,7 +3,7 @@ npm-debug.log
 Thumbs.db
 *.vsix
 node_modules/*
-out/*
+out/
 */.vs/
 .idea/
 target
