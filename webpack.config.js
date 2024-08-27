@@ -10,10 +10,10 @@ const webExtensionConfig = {
     extension: './src/extension.ts', // source of the web extension main file
   },
   output: {
-    filename: '[name].js',
-    path: path.join(__dirname, './dist/web'),
-    libraryTarget: 'commonjs',
-    devtoolModuleFilenameTemplate: '../../[resource-path]'
+    path: path.join(__dirname, 'dist'),
+    filename: 'extension.js',
+    libraryTarget: 'commonjs2',
+    devtoolModuleFilenameTemplate: '../[resource-path]'
   },
   resolve: {
     mainFields: ['browser', 'module', 'main'], // look for `browser` entry point in imported node modules
@@ -28,7 +28,8 @@ const webExtensionConfig = {
       https: require.resolve('https-browserify'),
       http: require.resolve('stream-http'),
       url: require.resolve('url'),
-      buffer: require.resolve('buffer')
+      buffer: require.resolve('buffer'),
+      path: require.resolve("path-browserify")
     }
   },
   module: {
@@ -50,6 +51,6 @@ const webExtensionConfig = {
   performance: {
     hints: false
   },
-  devtool: 'nosources-source-map' // create a source map that points to the original source file
+  devtool: 'source-map' // create a source map that points to the original source file
 };
-module.exports = [webExtensionConfig];
+module.exports = webExtensionConfig;

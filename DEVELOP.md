@@ -3,6 +3,8 @@
 The extension is currently being developed and built using Node.js 20 LTS.
 
 ## "Run and Debug" the source code from inside VS Code
+The first time you're wanting to run the extension, please be sure to run `npm clean-install`. Afterwards, just press F5/launch the "Run Extension" launch configuration.
+
 This opens a _separate_ VS Code window with the extension activated. It does not integrate the extension into your current VS Code instance.
 
 ## Package and install the extension
@@ -11,6 +13,8 @@ Create a `.vsix` file from the source code:
 * Open a terminal. In it, run:
 
   * `npm clean-install`
+
+  * `npm run compile-web`
 
   * `npx vsce package -o mateo-vscode.vsix`
 

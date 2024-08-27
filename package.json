@@ -19,13 +19,13 @@
     ],
     "version": "3.12.0-SNAPSHOT",
     "engines": {
-        "vscode": "1.57.0"
+        "vscode": "^1.57.0"
     },
     "categories": [
         "Programming Languages"
     ],
     "activationEvents": ["onLanguage:mateo"],
-    "main": "./out/extension.js",
+    "main": "./dist/extension",
     "browser": "./dist/web/extension.js",
     "contributes": {
         "languages": [
@@ -283,17 +283,18 @@
             }
         }
     },
+    
     "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "lint": "tslint -p ./",
-        "watch": "tsc -watch -p ./",
-        "compile-web": "webpack"
+        "compile": "webpack --mode development",
+        "watch": "webpack --mode development --watch",
+        "vscode:prepublish": "npm run package",
+        "package": "webpack --mode production --devtool hidden-source-map"
     },
     "dependencies": {
         "axios": "^0.19.2",
         "buffer": "^6.0.3",
         "https-browserify": "^1.0.0",
+        "path-browserify": "^1.0.1",
         "stream-http": "^3.2.0",
         "url": "^0.11.0"
     },
