@@ -136,7 +136,6 @@ class JsonCommands {
 
                 if (!this.isNoParamBlacklisted(command.name)) {
                     commandCompletion.insertText.appendText('(');
-                    let counter = 1;
                     let first = true;
                     for (const param of command.parameters) {
                         if (param.name !== '' && param.mandatory) {
@@ -145,8 +144,9 @@ class JsonCommands {
                             } else {
                                 first = false;
                             }
-                            commandCompletion.insertText.appendText(`${param.name} = "\${${counter}}"`);
-                            counter++;
+                            commandCompletion.insertText.appendText(`${param.name} = "`);
+                            commandCompletion.insertText.appendPlaceholder("");
+                            commandCompletion.insertText.appendText(`"`);
                         }
                     }
                     commandCompletion.insertText.appendText(')');
