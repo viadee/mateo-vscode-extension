@@ -1,6 +1,6 @@
 # Installation options
 
-The extension is currently being developed and built using Node.js 20 LTS.
+The extension is currently being developed and built using Node.js 22 LTS.
 
 ## "Run and Debug" the source code from inside VS Code
 This opens a _separate_ VS Code window with the extension activated. It does not integrate the extension into your current VS Code instance.

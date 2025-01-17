@@ -2,7 +2,13 @@
 
 All notable changes to the mateoScript extension for VSCode will be documented in this file.
 
-## [3.13.0] - XX.XX.XXXX
+## [3.13.0-SNAPSHOT] - DD.MM.YYYY
+
+- ...
+
+## [3.12.2] - 17.01.2025
+
+- Fixed issue with parameter placeholders when using code completion
 
 ## [3.12.0] - 19.08.2024
 

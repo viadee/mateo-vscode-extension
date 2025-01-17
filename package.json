@@ -17,16 +17,16 @@
         "robotic process automation",
         "rpa"
     ],
-    "version": "3.12.0-SNAPSHOT",
+    "version": "3.13.0-SNAPSHOT",
     "engines": {
-        "vscode": "1.57.0"
+        "vscode": "^1.57.0"
     },
     "categories": [
         "Programming Languages"
     ],
     "activationEvents": ["onLanguage:mateo"],
     "main": "./out/extension.js",
-    "browser": "./dist/web/extension.js",
+    "browser": "./out/extension.js",
     "contributes": {
         "languages": [
             {
