@@ -8,7 +8,8 @@ export const getSelectedCode = () => {
         return "";
     }
 
-    let selections = textEditor.selections;
+    let selections = [...textEditor.selections];
+
     selections.sort((s1, s2) => {
         return s1.start.line - s2.start.line;
     });

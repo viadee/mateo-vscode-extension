@@ -7,7 +7,7 @@
 		"strict": true,
 		"rootDir": "src",
 		"lib": [
-			"ES2021.String"
+			"ES2023", "DOM"
 		],
 	},
 	"exclude": [

@@ -151,7 +151,7 @@ export default class RepoStepRecommender {
     let currentLinePrefix: string = this.getLastLine(document);
     let completionItems: vscode.CompletionItem[] = [];
     for (let item of completions) {
-      if (item.label.includes(currentLinePrefix.trim())) {
+      if (String(item.label).includes(currentLinePrefix.trim())) {
         completionItems.push(item);
       }
     }

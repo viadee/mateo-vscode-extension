@@ -24,7 +24,9 @@
     "categories": [
         "Programming Languages"
     ],
-    "activationEvents": ["onLanguage:mateo"],
+    "activationEvents": [
+        "onLanguage:mateo"
+    ],
     "main": "./out/extension.js",
     "browser": "./out/extension.js",
     "contributes": {
@@ -291,19 +293,21 @@
         "compile-web": "webpack"
     },
     "dependencies": {
-        "axios": "^0.19.2",
+        "axios": "^1.12.2",
         "buffer": "^6.0.3",
         "https-browserify": "^1.0.0",
         "stream-http": "^3.2.0",
-        "url": "^0.11.0"
+        "url": "^0.11.4"
     },
     "devDependencies": {
-        "@types/node": "^10.17.60",
-        "@types/vscode": "1.57.0",
-        "ts-loader": "^9.4.2",
-        "tslint": "^5.16.0",
-        "typescript": "^4.9.5",
-        "webpack": "^5.76.3",
-        "webpack-cli": "^5.0.1"
+        "@types/node": "^24.8.1",
+        "@types/vscode": "1.105.0",
+        "@typescript-eslint/eslint-plugin": "^8.46.1",
+        "@typescript-eslint/parser": "^8.46.1",
+        "eslint": "^9.37.0",
+        "ts-loader": "^9.5.4",
+        "typescript": "^5.9.3",
+        "webpack": "^5.103.0",
+        "webpack-cli": "^6.0.1"
     }
 }
