@@ -1,7 +1,16 @@
 # Changelog
-
 All notable changes to the mateoScript extension for VSCode will be documented in this file.
 
+- ...
+
+## [3.12.2] - 17.01.2025
+
+- Fixed issue with parameter placeholders when using code completion
+
+## [3.12.0] - 19.08.2024
+
+- Added additional status bar for Robot Framework bridge
+- Added dynamic loading of command recommendations
 ## [3.11.0] - 03.08.2023
 
 - Fixed file validation which was broken when file was not in workspace root (TES-2363)

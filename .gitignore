@@ -7,3 +7,4 @@ out/*
 */.vs/
 .idea/
 target
+dist/
