@@ -17,9 +17,9 @@
         "robotic process automation",
         "rpa"
     ],
-    "version": "3.13.0-SNAPSHOT",
+    "version": "4.0.0",
     "engines": {
-        "vscode": "^1.57.0"
+        "vscode": "^1.105.0"
     },
     "categories": [
         "Programming Languages"
